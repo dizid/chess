@@ -31,9 +31,9 @@
         <p class="text-slate-500 text-sm">
           Powered by <span class="text-amber-400">Grok AI</span> | You play White
         </p>
-        <!-- Ko-fi Support Button - Replace YOUR_KOFI_USERNAME with your Ko-fi username -->
+        <!-- Ko-fi Support Button -->
         <a
-          href="https://ko-fi.com/YOUR_KOFI_USERNAME"
+          href="https://ko-fi.com/dizid"
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center gap-2 px-4 py-2 bg-[#FF5E5B] hover:bg-[#ff4442] text-white text-sm font-medium rounded-lg transition-colors shadow-lg shadow-red-900/20"
