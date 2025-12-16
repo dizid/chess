@@ -68,22 +68,39 @@
 
       <!-- Center: Chess Board -->
       <div class="flex flex-col items-center">
-        <!-- Board with coordinates -->
-        <div class="relative">
+        <!-- Board with coordinates - 3D wrapper -->
+        <div
+          class="relative transition-all duration-500"
+          :style="is3D ? { perspective: '1000px' } : {}"
+        >
           <!-- Rank numbers (1-8) on left -->
-          <div class="absolute -left-6 top-0 h-full flex flex-col justify-around text-slate-500 text-sm font-mono">
+          <div
+            class="absolute -left-6 top-0 h-full flex flex-col justify-around text-slate-500 text-sm font-mono transition-all duration-500"
+            :style="is3D ? { transform: 'translateZ(20px)' } : {}"
+          >
             <span v-for="rank in 8" :key="'rank-' + rank">{{ 9 - rank }}</span>
           </div>
 
           <!-- The Board -->
-          <div class="rounded-lg overflow-hidden shadow-2xl shadow-black/50 ring-4 ring-amber-900/50">
-            <div class="grid grid-cols-8">
+          <div
+            class="rounded-lg overflow-hidden shadow-2xl ring-4 ring-amber-900/50 transition-all duration-500"
+            :class="is3D ? 'shadow-black' : 'shadow-black/50'"
+            :style="is3D ? {
+              transform: 'rotateX(45deg) rotateZ(-2deg)',
+              transformStyle: 'preserve-3d'
+            } : {}"
+          >
+            <div class="grid grid-cols-8" :style="is3D ? { transformStyle: 'preserve-3d' } : {}">
               <template v-for="row in 8" :key="row">
                 <div
                   v-for="col in 8"
                   :key="`${row}-${col}`"
                   class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center cursor-pointer select-none transition-all duration-150 relative"
                   :class="getSquareClasses(row, col)"
+                  :style="is3D ? {
+                    boxShadow: 'inset 0 -4px 8px rgba(0,0,0,0.3), inset 0 4px 8px rgba(255,255,255,0.1)',
+                    transform: 'translateZ(0px)'
+                  } : {}"
                   @click="handleSquareClick(row, col)"
                 >
                   <!-- Piece -->
@@ -91,7 +108,7 @@
                     v-if="getPiece(row, col)"
                     class="text-4xl sm:text-4xl md:text-5xl transition-transform duration-150 hover:scale-110"
                     :class="getPieceClasses(row, col)"
-                    :style="getPieceStyle(row, col)"
+                    :style="{ ...getPieceStyle(row, col), ...(is3D ? { transform: 'translateZ(15px)', filter: 'drop-shadow(0 8px 4px rgba(0,0,0,0.4))' } : {}) }"
                   >
                     {{ getPiece(row, col) }}
                   </span>
@@ -153,6 +170,17 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
             </svg>
             Undo
+          </button>
+          <!-- 3D Toggle -->
+          <button
+            @click="is3D = !is3D"
+            class="flex items-center gap-2 px-5 py-2.5 text-white font-medium rounded-lg transition-all duration-200"
+            :class="is3D ? 'bg-amber-600 hover:bg-amber-500' : 'bg-slate-700 hover:bg-slate-600'"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+            </svg>
+            {{ is3D ? '2D' : '3D' }}
           </button>
         </div>
       </div>
@@ -216,6 +244,7 @@ const isThinking = ref(false)
 const lastMove = ref(null)           // { from, to } of last move
 const moveHistory = ref([])          // Array of SAN moves
 const moveListRef = ref(null)        // Ref for auto-scroll
+const is3D = ref(false)              // 3D board toggle
 
 // Progress meter state
 const thinkingProgress = ref(0)

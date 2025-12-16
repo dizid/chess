@@ -16,6 +16,15 @@
       <ChessBoard />
     </main>
 
+    <!-- Ad Banner -->
+    <div class="w-full max-w-4xl mx-auto px-4 py-2">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-2222840120415329"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+
     <!-- Footer -->
     <footer class="py-3 px-6 border-t border-amber-900/30 text-center">
       <p class="text-slate-500 text-sm">
@@ -26,5 +35,15 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue'
 import ChessBoard from './components/chess-board.vue'
+
+// Initialize Google AdSense ad when component mounts
+onMounted(() => {
+  try {
+    (window.adsbygoogle = window.adsbygoogle || []).push({})
+  } catch (e) {
+    // AdSense not loaded yet or ad blocked
+  }
+})
 </script>

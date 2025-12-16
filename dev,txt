@@ -1,5 +1,18 @@
 
 
+
+16-12-25
+
+What You Need To Do
+Sign up: Go to https://adsense.google.com → Add your site
+Wait: Google approves in 1-14 days
+Replace placeholders in the code:
+File	Replace	With
+index.html	ca-pub-XXXXXXX	Your Publisher ID
+src/App.vue	ca-pub-XXXXXXX	Your Publisher ID
+src/App.vue	YYYYYYYYYY	Your Ad Slot ID
+You'll find both IDs in your AdSense dashboard after approval. Ad placement: Horizontal banner between the game and footer (non-intrusive).
+
 Create a very simple a basic chess game in the browser.
 player plays against Grok AI
 
