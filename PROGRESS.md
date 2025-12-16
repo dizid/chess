@@ -39,11 +39,15 @@
   - Publisher ID: ca-pub-2222840120415329
   - Auto-format ad below game
   - Waiting for Google approval (1-14 days)
+- [x] Ko-fi tip button added
+  - Red "Support this project" button in footer
+  - **ACTION REQUIRED**: Replace `YOUR_KOFI_USERNAME` in App.vue with your Ko-fi username
+  - Create account at https://ko-fi.com if needed
 
 ## Pending / Ideas
 
 ### Monetization Options to Consider
-1. **Ko-fi tip button** - 0% fees, 30 min to add
+1. ~~**Ko-fi tip button** - 0% fees, 30 min to add~~ DONE
 2. **Rewarded video ads** - watch ad → get undo/hint
 3. **Board themes shop** - sell cosmetic themes via Stripe
 4. **"Remove ads" one-time purchase**
