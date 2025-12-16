@@ -41,8 +41,7 @@
   - Waiting for Google approval (1-14 days)
 - [x] Ko-fi tip button added
   - Red "Support this project" button in footer
-  - **ACTION REQUIRED**: Replace `YOUR_KOFI_USERNAME` in App.vue with your Ko-fi username
-  - Create account at https://ko-fi.com if needed
+  - Linked to https://ko-fi.com/dizid
 
 ## Pending / Ideas
 
