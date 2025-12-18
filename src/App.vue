@@ -16,15 +16,6 @@
       <ChessBoard />
     </main>
 
-    <!-- Ad Banner -->
-    <div class="w-full max-w-4xl mx-auto px-4 py-2">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-2222840120415329"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-    </div>
-
     <!-- Footer -->
     <footer class="py-4 px-6 border-t border-amber-900/30">
       <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
@@ -45,12 +36,32 @@
         </a>
       </div>
     </footer>
+
+    <!-- Subtle Ad Section (collapsible) -->
+    <div v-if="showAd" class="relative bg-slate-950/50 border-t border-slate-800/50">
+      <button
+        @click="showAd = false"
+        class="absolute top-1 right-2 text-slate-600 hover:text-slate-400 text-xs"
+        title="Hide ad"
+      >
+        ✕
+      </button>
+      <div class="max-w-2xl mx-auto px-4 py-3">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-2222840120415329"
+             data-ad-format="horizontal"
+             data-full-width-responsive="false"></ins>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import ChessBoard from './components/chess-board.vue'
+
+const showAd = ref(true)
 
 // Initialize Google AdSense ad when component mounts
 onMounted(() => {
