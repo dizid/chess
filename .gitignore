@@ -6,6 +6,10 @@ node_modules
 
 *.txt
 
+# Stockfish WASM engine (copied from node_modules during setup)
+public/stockfish.js
+public/stockfish.wasm
+
 # Build output
 dist
 

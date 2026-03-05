@@ -5,7 +5,7 @@
       <div class="max-w-6xl mx-auto flex items-center justify-center gap-3">
         <span class="text-3xl">♚</span>
         <h1 class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-200 bg-clip-text text-transparent">
-          Chess vs Grok AI
+          Chess vs Stockfish
         </h1>
         <span class="text-3xl">♔</span>
       </div>
@@ -20,7 +20,7 @@
     <footer class="py-4 px-6 border-t border-amber-900/30">
       <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
         <p class="text-slate-500 text-sm">
-          Powered by <span class="text-amber-400">Grok AI</span> | You play White
+          Powered by <span class="text-amber-400">Stockfish</span> | You play White
         </p>
         <!-- Ko-fi Support Button -->
         <a
